@@ -3,6 +3,8 @@ var app = express();
 
 var port = process.env.PORT || 3000; // process.env reads environment variables. looks at enviro and sets port to 3000
 
+app.use(express.static(__dirname + "/app/")); //app.use says filter everything through this before it touches any other endpoints. static allows me to serve static files. __dirname is  ashortcut to my current directory
+
 function Adjective () {
   this.happy = true;
   this.grumpy = true;
@@ -32,6 +34,8 @@ app.listen(port, function(){
   console.log('server started on port ' + port);
 });
 
-
+app.get("/", function(req, res){
+  res.sendFile("index.html");
+});
 
 
