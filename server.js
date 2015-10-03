@@ -1,6 +1,5 @@
 var express = require("express");
 var app = express();
-
 var port = process.env.PORT || 3000; // process.env reads environment variables. looks at enviro and sets port to 3000
 
 app.use(express.static(__dirname + "/app/")); //app.use says filter everything through this before it touches any other endpoints. static allows me to serve static files. __dirname is  ashortcut to my current directory
